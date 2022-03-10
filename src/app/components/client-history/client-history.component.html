@@ -1,0 +1,46 @@
+<div class="col-12">
+  <div class="card">
+      <!-- <div class="card-body text-center">
+          <h5 class="card-title m-b-0">Booking History</h5>
+      </div> -->
+      <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Service Name</th>
+                  <th scope="col">Business Name</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Status</th>
+                  <th scope="col"></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let booking of bookingList" >
+                  <th scope="row">{{booking.BOOKING_ID}}</th>
+                  <td>{{booking.My_Service_prod.NAME}}</td>
+                  <td>{{booking.My_Business.NAME}}</td>
+                  <td>{{booking.ENTRY_DATE}}</td>
+                  <td>{{booking.TOTAL_PRICE}}</td>
+                  <td>{{booking.My_Status.NAME}}</td>
+                  <td (click)="goHistoryDetails(booking.BOOKING_ID)" class="viewDetails pointer">View Details</td>
+              </tr>
+              <!-- <tr>
+                  <th scope="row">2</th>
+                  <td>Singla</td>
+                  <td>Tihorn</td>
+                  <td>@singla23421</td>
+                  <td>@singla23421</td>
+                  <td>@singla23421</td>
+              </tr>
+              <tr>
+                  <th scope="row">3</th>
+                  <td>Nick</td>
+                  <td>Panagio</td>
+                  <td>@nickpanagio</td>
+                  <td>@nickpanagio</td>
+                  <td>@nickpanagio</td>
+              </tr> -->
+          </tbody>
+      </table>
+  </div>

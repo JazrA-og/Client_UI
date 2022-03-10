@@ -1,0 +1,108 @@
+<app-business-card [businessID]="businessID"></app-business-card>
+
+<hr>
+
+
+<section class="product-shop spad">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter"
+      >
+      <div class="filter-widget">
+        <h3 class="fw-title">Categories</h3>
+        <dt class="filter-catagories pointer" (click)="fetchData()">Reset Sorting</dt>
+        <br>
+        <dl class="filter-catagories" *ngFor="let category of categoryList">
+          <dt>
+            <a class="pointer" (click)="selectItem(category)">{{ category.NAME }}</a>
+          </dt>
+          <dd *ngIf="selectedItem === category">
+            <li  *ngFor="let subCat of category.My_Sub_categories">
+
+             <a class="pointer" (click)="getDataByCat(subCat.SUB_CATEGORY_ID)"> {{subCat.NAME}}</a>
+
+            </li>
+          </dd>
+        </dl>
+
+          <!-- <ul class="filter-catagories">
+            <li *ngFor="let category of categoryList">
+              <a routerLink="/product">{{ category.NAME }}</a>
+              <ul>
+                <li *ngFor="let subCat of category.My_Sub_categories"></li>
+              </ul>
+            </li>
+          </ul> -->
+        </div>
+
+        <hr />
+      </div>
+      <!-- End Of Sidebar -->
+      <!--  -->
+      <div class="col-lg-9 order-1 order-lg-2">
+        <!-- Start Sorting -->
+        <div class="product-show-option">
+          <div class="row">
+            <div class="col-lg-7 col-md-7">
+              <h4>Available Services</h4>
+              <!-- <div class="select-option">
+                <select class="sorting">
+                  <option value="">Default Sorting</option>
+                </select>
+                <select class="p-show">
+                  <option value="">Show:</option>
+                </select>
+              </div> -->
+            </div>
+            <!-- <div class="col-lg-5 col-md-5 text-right">
+              <p>Show 01- 09 Of 36 Product</p>
+            </div> -->
+          </div>
+        </div>
+        <!-- End Sorting -->
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-md-4" *ngFor="let service of servicesList">
+              <div
+                class="card p-3 pointer"
+                (click)="goProduct(service.SERVICE_PROD_ID)"
+              >
+                <div class="d-flex flex-row mb-3">
+                  <div class="d-flex flex-column ml-2">
+                    <span>{{ service.NAME }}</span
+                    ><span class="text-black-50">{{
+                      service.My_Business.NAME
+                    }}</span>
+                    <!-- <span class="ratings"
+                      ><i class="fa fa-star"></i><i class="fa fa-star"></i
+                      ><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    </span> -->
+                  </div>
+                </div>
+                <!-- <h6>{{ service.DESCRIPTION }}</h6> -->
+                <div class="d-flex justify-content-between install mt-3">
+                  <span>{{ service.PRICE }}$</span
+                  ><span
+                    class="text-primary"
+                    (click)="goProduct(service.SERVICE_PROD_ID)"
+                    >View&nbsp;<i class="fa fa-angle-right"></i
+                  ></span>
+                </div>
+              </div>
+              <br />
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+
+        <!-- <div class="loading-more">
+          <i class="icon_loading"></i>
+          <a> Loading More </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Product Shop Section End -->

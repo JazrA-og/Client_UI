@@ -1,0 +1,134 @@
+<header class="header-section">
+  <div class="header-top">
+    <div class="container">
+      <div *ngIf="this.CmSvc.Is_Logged_In.value == false" class="ht-left">
+        <div class="mail-service">
+          <i class="fa fa-envelope"></i>
+          Guest
+        </div>
+        <!-- <div class="phone-service">
+                  <i class=" fa fa-phone"></i>
+                  +00 00.000.000
+              </div> -->
+      </div>
+      <div *ngIf="this.CmSvc.Is_Logged_In.value == true" class="ht-left">
+        <div class="mail-service pointer client-details" (click)="goToClientInfo()">
+          <i class="fa fa-envelope"></i>
+          Welcome Back, {{client?.FIRST_NAME}} !
+        </div>
+        <!-- <div class="phone-service">
+                  <i class=" fa fa-phone"></i>
+                  +00 00.000.000
+              </div> -->
+      </div>
+      <div class="ht-right">
+        <a
+          routerLink="login"
+          *ngIf="this.CmSvc.Is_Logged_In.value == false"
+          class="login-panel client-details"
+
+          ><i class="fa fa-user"></i>Login</a
+        >
+        <a
+          *ngIf="this.CmSvc.Is_Logged_In.value == true"
+          class="login-panel client-details"
+          (click)="logout()"
+          ><i class="fa fa-user"></i>Logout</a
+        >
+
+        <!-- <a
+          *ngIf="this.CmSvc.Is_Logged_In.value == true"
+          class="login-panel"
+          (click)="logout()"
+          ><i></i>Booking History </a
+        > -->
+        <div class="lan-selector">
+
+<!--
+          <select
+            class="language_drop"
+            name="countries"
+            id="countries"
+            style="width: 300px"
+          >
+          <option
+              value="yt"
+              data-image="../../../assets/img/flag-1.jpg"
+              data-imagecss="flag yt"
+              data-title="English"
+            >
+             Booking History
+            </option>
+            <option
+              value="yu"
+              data-image="../../../assets/img/flag-2.jpg"
+              data-imagecss="flag yu"
+              data-title="Bangladesh"
+            >
+              German
+            </option>
+          </select> -->
+        </div>
+        <div class="top-social">
+          <a><i class="ti-facebook pointer"></i></a>
+          <a><i class="ti-twitter-alt pointer"></i></a>
+          <a><i class="ti-linkedin pointer"></i></a>
+          <a><i class="ti-pinterest pointer"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container">
+    <div class="inner-header">
+      <div class="row">
+        <div class="col-lg-2 col-md-2">
+          <div class="logo">
+            <a routerLink="menu"> Service Engine </a>
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-7">
+          <div class="advanced-search">
+            <button type="button" class="category-btn">All Categories</button>
+            <div class="input-group">
+              <input type="text" placeholder="What do you need?" />
+              <button type="button"><i class="ti-search"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 text-right col-md-3">
+          <ul class="nav-right">
+            <li class="cart-icon">
+              <a routerLink="client-history">
+                <i class="icon_bag_alt"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="nav-item">
+    <div class="container">
+      <!-- <div class="nav-depart">
+        <div class="depart-btn">
+          <i class="ti-menu"></i>
+          <span>All Services</span>
+          <ul class="depart-hover">
+            <li class="active"><a routerLink="shop">Shop</a></li>
+            <li><a routerLink="services">Services</a></li>
+            <li><a>Food Delivery</a></li>
+          </ul>
+        </div>
+      </div> -->
+      <nav class="nav-menu mobile-menu">
+        <ul>
+          <li><a routerLink="shop">Services</a></li>
+          <li><a routerLink="business">Businesses</a></li>
+          <li><a routerLink="map">Map</a></li>
+          <li *ngIf="this.CmSvc.Is_Logged_In.value == true"><a routerLink="client-history">Booking History</a></li>
+        </ul>
+      </nav>
+      <div id="mobile-menu-wrap"></div>
+    </div>
+  </div>
+</header>
